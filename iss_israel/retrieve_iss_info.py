@@ -1,7 +1,8 @@
-from iss_israel.iss_handler import ISSHandler
-from dal.postgre_dal import PostgreDal
-from iss_israel.timestamp_helper import convert_timezone
 import json
+
+from dal.postgre_dal import PostgreDal
+from iss_israel.iss_handler import ISSHandler
+from iss_israel.timestamp_helper import convert_timezone
 
 with open('../config.json', 'r') as config_file:
     cfg = json.load(config_file)
@@ -29,6 +30,7 @@ class RetrieveISSInfo:
                 self.postgre_dal.insert_city(city, event['duration'], rise_time)
 
         self.postgre_dal.commit()
+
 
 if __name__ == '__main__':
     retrieve_info = RetrieveISSInfo()
