@@ -1,8 +1,9 @@
 import psycopg2
 from dal import cfg
+from dal.dal_interface import DalInterface
 
 
-class PostgreDal:
+class PostgreDal(DalInterface):
     def __init__(self):
         self.con = psycopg2.connect(database=cfg['postgre']['database'],
                                     user=cfg['postgre']['user'],
