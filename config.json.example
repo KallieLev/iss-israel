@@ -1,0 +1,23 @@
+{
+  "iss_url": "http://api.open-notify.org/iss-pass.json?lat={lat}&lon={lon}&n={n}",
+  "cities": [
+    {
+      "haifa": {
+        "latitude": 32.794,
+        "longitude": 34.99
+      },
+      "tel_aviv": {
+        "latitude": 32.08,
+        "longitude": 34.78
+      },
+      "beer_sheva": {
+        "latitude": 31.25,
+        "longitude": 34.79
+      },
+      "eilat": {
+        "latitude": 29.56,
+        "longitude": 34.95
+      }
+    }
+  ]
+}
