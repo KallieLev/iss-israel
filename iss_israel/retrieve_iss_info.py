@@ -18,7 +18,7 @@ class RetrieveISSInfo:
             cities_info[city] = info
         return cities_info
 
-    def insert_cities_info_postgre(self):
+    def save_cities_info(self):
         cities_info = self.get_cities_info()
         for city, info in cities_info.items():
             for event in info:
@@ -26,8 +26,3 @@ class RetrieveISSInfo:
                 self.postgre_dal.insert_city(city, event['duration'], rise_time)
 
         self.postgre_dal.commit()
-
-
-if __name__ == '__main__':
-    retrieve_info = RetrieveISSInfo()
-    retrieve_info.insert_cities_info_postgre()
