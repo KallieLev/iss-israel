@@ -1,23 +1,34 @@
 {
-  "iss_url": "http://api.open-notify.org/iss-pass.json?lat={lat}&lon={lon}&n={n}",
-  "cities": [
-    {
+  "postgre": {
+    "database": "dd9vonu86e7brc",
+    "user": "ytnocggdsutaic",
+    "password": "62598381d1775e114e531a651001b799efddbdff77ea21b1b131e447df26c8e6",
+    "host": "ec2-54-75-231-215.eu-west-1.compute.amazonaws.com",
+    "port": "5432",
+    "table_name": "orbital_data_kallie"
+  },
+  "iss": {
+    "url": "http://api.open-notify.org/iss-pass.json?lat={lat}&lon={lon}&n={n}",
+    "cities": {
       "haifa": {
-        "latitude": 32.794,
-        "longitude": 34.99
+        "latitude": "32.794",
+        "longitude": "34.99"
       },
       "tel_aviv": {
-        "latitude": 32.08,
-        "longitude": 34.78
+        "latitude": "32.08",
+        "longitude": "34.78"
       },
       "beer_sheva": {
-        "latitude": 31.25,
-        "longitude": 34.79
+        "latitude": "31.25",
+        "longitude": "34.79"
       },
       "eilat": {
-        "latitude": 29.56,
-        "longitude": 34.95
+        "latitude": "29.56",
+        "longitude": "34.95"
       }
-    }
-  ]
+    },
+    "number_of_events": 50,
+    "from_timezone": "Israel",
+    "to_timezone": "UTC"
+  }
 }
