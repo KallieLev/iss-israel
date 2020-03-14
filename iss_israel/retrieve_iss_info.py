@@ -1,11 +1,7 @@
-import json
-
 from dal.postgre_dal import PostgreDal
+from iss_israel import cfg
 from iss_israel.iss_handler import ISSHandler
 from iss_israel.timestamp_helper import convert_timezone
-
-with open('../config.json', 'r') as config_file:
-    cfg = json.load(config_file)
 
 
 class RetrieveISSInfo:

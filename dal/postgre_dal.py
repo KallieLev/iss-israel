@@ -1,8 +1,5 @@
-import json
 import psycopg2
-
-with open('../config.json', 'r') as config_file:
-    cfg = json.load(config_file)
+from dal import cfg
 
 
 class PostgreDal:
