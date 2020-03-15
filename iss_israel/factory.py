@@ -6,7 +6,7 @@ from iss_israel.retrieve_iss_info import RetrieveISSInfo
 def initialize(config):
     dal = initialize_dal(config)
     api_handler = ISSHandler(config['iss']['url'])
-    return RetrieveISSInfo(api_handler, dal, config)
+    return RetrieveISSInfo(api_handler, dal, **config["retrieve"])
 
 
 def initialize_dal(config):
