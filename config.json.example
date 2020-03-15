@@ -1,14 +1,21 @@
 {
-  "postgre": {
-    "database": "dd9vonu86e7brc",
-    "user": "ytnocggdsutaic",
-    "password": "62598381d1775e114e531a651001b799efddbdff77ea21b1b131e447df26c8e6",
-    "host": "ec2-54-75-231-215.eu-west-1.compute.amazonaws.com",
-    "port": "5432",
-    "table_name": "orbital_data_kallie"
+  "database_type": "postgre",
+  "databases": {
+    "postgre": {
+      "connection": {
+        "database": "dd9vonu86e7brc",
+        "user": "ytnocggdsutaic",
+        "password": "62598381d1775e114e531a651001b799efddbdff77ea21b1b131e447df26c8e6",
+        "host": "ec2-54-75-231-215.eu-west-1.compute.amazonaws.com",
+        "port": "5432",
+        "sslmode": "require"
+      }
+    }
   },
   "iss": {
-    "url": "http://api.open-notify.org/iss-pass.json?lat={lat}&lon={lon}&n={n}",
+    "url": "http://api.open-notify.org/iss-pass.json?lat={lat}&lon={lon}&n={n}"
+  },
+  "retrieve": {
     "cities": {
       "haifa": {
         "latitude": "32.794",
@@ -29,6 +36,7 @@
     },
     "number_of_events": 50,
     "from_timezone": "Israel",
-    "to_timezone": "UTC"
+    "to_timezone": "UTC",
+    "table_name": "orbital_data_kallie"
   }
 }
