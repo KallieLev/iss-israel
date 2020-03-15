@@ -1,19 +1,17 @@
-from dal.postgre_dal import PostgreDal
 from iss_israel import cfg
-from iss_israel.iss_handler import ISSHandler
 from utils.timestamp_helper import convert_timezone
 
 
 class RetrieveISSInfo:
-    def __init__(self):
-        self.iss_handler = ISSHandler()
-        self.postgre_dal = PostgreDal()
+    def __init__(self, api_handler, dal):
+        self.api_handler = api_handler
+        self.dal = dal
 
     def get_cities_info(self):
         cities_info = {}
         cities = cfg['iss']['cities']
         for city in cities.keys():
-            info = self.iss_handler.get_timestamps(cities[city]['latitude'], cities[city]['longitude'],
+            info = self.api_handler.get_timestamps(cities[city]['latitude'], cities[city]['longitude'],
                                                    cfg['iss']['number_of_events'])
             cities_info[city] = info
         return cities_info
@@ -23,6 +21,6 @@ class RetrieveISSInfo:
         for city, info in cities_info.items():
             for event in info:
                 rise_time = convert_timezone(event['risetime'], cfg['iss']['from_timezone'], cfg['iss']['to_timezone'])
-                self.postgre_dal.insert_city(city, event['duration'], rise_time)
+                self.dal.insert_city(city, event['duration'], rise_time, cfg['postgre']['table_name'])
 
-        self.postgre_dal.commit()
+        self.dal.commit()
