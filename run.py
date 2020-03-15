@@ -1,4 +1,4 @@
-from iss_israel.factory import initialize_retriever
+from factory.retrieve_factory import initialize_retriever
 from load_config import load_config
 
 if __name__ == '__main__':
