@@ -1,13 +1,10 @@
-from iss_israel.retrieve_iss_info import RetrieveISSInfo
-from dal.postgre_dal import PostgreDal
-from iss_israel.iss_handler import ISSHandler
+import json
+
+from iss_israel.factory import initialize
 
 if __name__ == '__main__':
-    api_handler = ISSHandler(cfg['iss']['url'])
-    dal = PostgreDal(database=cfg['postgre']['database'],
-                     user=cfg['postgre']['user'],
-                     password=cfg['postgre']['password'],
-                     host=cfg['postgre']['host'],
-                     port=cfg['postgre']['port'])
-    retrieve_info = RetrieveISSInfo(api_handler, dal)
+    with open('../config.json', 'r') as config_file:
+        cfg = json.load(config_file)
+
+    retrieve_info = initialize(cfg)
     retrieve_info.save_cities_info()

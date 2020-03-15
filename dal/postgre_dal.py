@@ -1,16 +1,11 @@
 import psycopg2
-from dal import cfg
+
 from dal.dal_interface import DalInterface
 
 
 class PostgreDal(DalInterface):
-    def __init__(self, database, user, password, host, port):
-        self.con = psycopg2.connect(database=database,
-                                    user=user,
-                                    password=password,
-                                    host=host,
-                                    port=port,
-                                    sslmode='require')
+    def __init__(self, **kwargs):
+        self.con = psycopg2.connect(**kwargs)
 
     def insert_city(self, city_name, duration, rise_time, table_name):
         cur = self.con.cursor()
